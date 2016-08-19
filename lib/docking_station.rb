@@ -1,4 +1,5 @@
 require_relative 'bike'
+require_relative 'van'
 
 class DockingStation
 
@@ -22,7 +23,9 @@ class DockingStation
   end
 
   def give_broken_bikes
-    @bikes.select {|bike| bike.broken == true}
+    broken_bikes_array = @bikes.select {|bike| bike.broken == true}
+    @bikes = working_bikes
+    return broken_bikes_array
   end
 
 private

@@ -13,6 +13,8 @@ let(:station) {double :station}
     expect(subject.collect_broken(station)).to eq [bike]
   end
 
+  
+
   it "receives working bikes from garage"
   it "** returns working bikes to station **"
   it "accepts no more than 5 broken bikes from station"

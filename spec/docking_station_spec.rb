@@ -64,4 +64,10 @@ let(:bike) { double :bike }
     expect(station.capacity).to eq 50
   end
 
+  it 'gives broken bikes to van' do
+    bike = double(:bike, :broken => true, :report_broken => true)
+    subject.dock_bike(bike)
+    subject.give_broken_bikes
+    expect(subject.bikes).to eq []
+  end
 end
