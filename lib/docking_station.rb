@@ -21,6 +21,10 @@ class DockingStation
     @bikes << bike
   end
 
+  def give_broken_bikes
+    @bikes.select {|bike| bike.broken == true}
+  end
+
 private
 
   def full?
