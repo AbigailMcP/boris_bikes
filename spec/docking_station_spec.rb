@@ -70,4 +70,13 @@ let(:bike) { double :bike }
     subject.give_broken_bikes
     expect(subject.bikes).to eq []
   end
+
+  it 'returns only broken bikes' do
+    bike1 = double(:bike1, :broken => true)
+    bike2 = double(:bike2, :broken => false)
+    subject.dock_bike(bike1)
+    subject.dock_bike(bike2)
+    expect(subject.give_broken_bikes).to eq [bike1]
+    expect(subject.bikes).to eq [bike2]
+  end
 end
